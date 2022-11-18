@@ -1,0 +1,3 @@
+[submodule "TwoActionsBus"]
+	path = TwoActionsBus
+	url = https://github.com/Ir-rev/TwoActionsBus.git
