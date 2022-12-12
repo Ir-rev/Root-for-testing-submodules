@@ -1,3 +1,6 @@
 [submodule "twoWayActionsBus"]
 	path = twoWayActionsBus
 	url = https://github.com/Ir-rev/twoWayActionsBus.git
+[submodule "foodMaker"]
+	path = foodMaker
+	url = https://github.com/Ir-rev/foodMaker.git
