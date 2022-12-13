@@ -4,3 +4,6 @@
 [submodule "foodMaker"]
 	path = foodMaker
 	url = https://github.com/Ir-rev/foodMaker.git
+[submodule "recyclerViewMerge"]
+	path = recyclerViewMerge
+	url = https://github.com/Ir-rev/recyclerViewMerge.git

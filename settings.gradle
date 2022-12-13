@@ -16,3 +16,4 @@ rootProject.name = "Root"
 include ':app'
 include ':twoWayActionsBus'
 include ':foodMaker'
+include ':recyclerViewMerge'
