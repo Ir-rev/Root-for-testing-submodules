@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import ir.rev.foodMaker.FoodPlugin
 import ir.rev.foodMaker.models.BaseFood
+import ir.rev.foodMaker.models.FoodFilter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
             FoodPlugin.getFoodListRepository().getFoodListObservable().subscribe {
                 Log.d("checkResult", "onCreate: ${it.first}")
             }
+            FoodPlugin.getFoodListRepository().subscribeFoodList(foodFilter = FoodFilter.default())
         }
     }
 }
