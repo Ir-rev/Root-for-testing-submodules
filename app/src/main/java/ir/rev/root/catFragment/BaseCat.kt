@@ -78,12 +78,12 @@ class OtherCat(name: String, group: String) : BaseCat(name, group) {
     override val description: String
         get() = "я что то иное номер $name"
 
-    companion object : ItemChecker.ForViewModelMerge<WhiteCat>() {
+    companion object : ItemChecker.ForViewModelMerge<OtherCat>() {
 
-        override fun areItemsTheSame(left: WhiteCat, right: WhiteCat) =
+        override fun areItemsTheSame(left: OtherCat, right: OtherCat) =
             left.name == right.name
 
-        override fun merge(left: WhiteCat, right: WhiteCat) {
+        override fun merge(left: OtherCat, right: OtherCat) {
             if (left === right) return
             left.titleText.set(right.titleText.get())
             left.groupText.set(right.groupText.get())
