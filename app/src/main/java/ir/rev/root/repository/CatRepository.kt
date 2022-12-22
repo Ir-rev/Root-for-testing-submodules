@@ -40,9 +40,9 @@ class CatRepository {
 
     private fun generateCatsList(position: Int, count: Int): List<Cat> {
         val resultList = mutableListOf<Cat>()
-        for (i in 0 until count) {
+        for (i in 0 until position + count) {
             if (deletedCat.contains(i.toString())) continue
-            resultList.add(generateCat(position + i))
+            resultList.add(generateCat(i))
         }
         return resultList
     }

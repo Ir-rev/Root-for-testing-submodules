@@ -34,15 +34,17 @@ class CatFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         adapter = CatListAdapter()
         binding.catList.apply {
-            adapter = adapter
-            PaginationScrollListener(
-                context = context,
-                loadNextPage = {
-                    viewModel.refreshByScroll()
-                },
-            ).apply {
-                setOnTouchListener(this)
-            }
+            adapter = this@CatFragment.adapter
+            addOnScrollListener(
+                PaginationScrollListener(
+                    context = context,
+                    loadNextPage = {
+                        viewModel.refreshByScroll()
+                    },
+                ).apply {
+                    setOnTouchListener(this)
+                }
+            )
         }
 
         viewModel.catListLiveData.observe(viewLifecycleOwner) {
@@ -55,6 +57,9 @@ class CatFragment : Fragment() {
                     /* должно быть пусто*/
                 }
             }
+        }
+        binding.buttonDeleteCat.setOnClickListener {
+            viewModel.action.post(DeleteCat(binding.textInput.text.toString()))
         }
     }
 

@@ -8,16 +8,12 @@ sealed class BaseCat(
     val group: String
 ) {
 
-    val titleText: ObservableField<String> = ObservableField(name)
-    val groupText: ObservableField<String> = ObservableField(group)
-
-    abstract val description: String
+    abstract val titleText: ObservableField<String>
 }
 
 class BlackCat(name: String, group: String) : BaseCat(name, group) {
 
-    override val description: String
-        get() = "я черный кот по имени кот-$name"
+    override val titleText: ObservableField<String> = ObservableField("я черный кот по имени кот-$name")
 
     companion object : ItemChecker.ForViewModelMerge<BlackCat>() {
 
@@ -27,15 +23,13 @@ class BlackCat(name: String, group: String) : BaseCat(name, group) {
         override fun merge(left: BlackCat, right: BlackCat) {
             if (left === right) return
             left.titleText.set(right.titleText.get())
-            left.groupText.set(right.groupText.get())
         }
     }
 }
 
 class OrangeCat(name: String, group: String) : BaseCat(name, group) {
 
-    override val description: String
-        get() = "я не кот,а К-О-Т-$name из группы $group"
+    override val titleText: ObservableField<String> = ObservableField("я не кот,а К-О-Т-$name из группы $group")
 
     companion object : ItemChecker.ForViewModelMerge<OrangeCat>() {
 
@@ -45,15 +39,13 @@ class OrangeCat(name: String, group: String) : BaseCat(name, group) {
         override fun merge(left: OrangeCat, right: OrangeCat) {
             if (left === right) return
             left.titleText.set(right.titleText.get())
-            left.groupText.set(right.groupText.get())
         }
     }
 }
 
 class WhiteCat(name: String, group: String) : BaseCat(name, group) {
 
-    override val description: String
-        get() = "white power number $name"
+    override val titleText: ObservableField<String> = ObservableField("white power number $name")
 
     /**
      * оставил тут просто что бы показать что в разные наследники можно что нибудь засунуть интересное
@@ -68,15 +60,14 @@ class WhiteCat(name: String, group: String) : BaseCat(name, group) {
         override fun merge(left: WhiteCat, right: WhiteCat) {
             if (left === right) return
             left.titleText.set(right.titleText.get())
-            left.groupText.set(right.groupText.get())
+
         }
     }
 }
 
 class OtherCat(name: String, group: String) : BaseCat(name, group) {
 
-    override val description: String
-        get() = "я что то иное номер $name"
+    override val titleText: ObservableField<String> = ObservableField("я что то иное номер $name")
 
     companion object : ItemChecker.ForViewModelMerge<OtherCat>() {
 
@@ -86,7 +77,7 @@ class OtherCat(name: String, group: String) : BaseCat(name, group) {
         override fun merge(left: OtherCat, right: OtherCat) {
             if (left === right) return
             left.titleText.set(right.titleText.get())
-            left.groupText.set(right.groupText.get())
+
         }
     }
 }

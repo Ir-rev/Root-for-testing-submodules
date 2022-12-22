@@ -65,7 +65,7 @@ class CatViewModel : ViewModel() {
      */
     private fun List<Cat>.createViewModels(): List<BaseCat> {
         return map {
-            when (it.name) {
+            when (it.group) {
                 "black" -> BlackCat(name = it.name, group = it.group)
                 "orange" -> OrangeCat(name = it.name, group = it.group)
                 "white" -> WhiteCat(name = it.name, group = it.group)

@@ -21,7 +21,7 @@
         <TextView
             android:layout_gravity="center"
             android:textColor="@color/white"
-            android:text="@{viewModel.name}"
+            android:text="@{viewModel.titleText}"
             android:gravity="center"
             android:layout_marginHorizontal="8dp"
             android:layout_width="match_parent"
