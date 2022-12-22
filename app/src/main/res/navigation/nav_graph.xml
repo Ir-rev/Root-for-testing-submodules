@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/firstFragment"
-        android:name="ir.rev.root.firstFragment.CatFragment"
+        android:name="ir.rev.root.catFragment.CatFragment"
         android:label="Первый"
         tools:layout="@layout/fragment_first">
     </fragment>
