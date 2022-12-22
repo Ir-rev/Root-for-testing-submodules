@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'androidx.navigation.safeargs.kotlin' //зависимости навигации(3)
 }
 
 android {
@@ -16,7 +17,12 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    buildFeatures {
+        viewBinding true
+    }
+    dataBinding {
+        enabled = true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -45,5 +51,12 @@ dependencies {
     implementation "io.reactivex.rxjava3:rxjava:3.1.5"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.3'
 
+    // зависимости навигации(1) https://developer.android.com/guide/navigation/navigation-getting-started
+    def nav_version = "2.5.3"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
     implementation project(':foodMaker')
+    implementation project(':twoWayActionsBus')
+    implementation project(':recyclerViewMerge')
 }
