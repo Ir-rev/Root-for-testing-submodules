@@ -1,6 +1,6 @@
 [submodule "twoWayActionsBus"]
 	path = twoWayActionsBus
-	url = https://github.com/Ir-rev/twoWayActionsBus.git
+	url = https://github.com/Ir-rev/twoWayActionsBus
 [submodule "recyclerViewMerge"]
 	path = recyclerViewMerge
 	url = https://github.com/Ir-rev/recyclerViewMerge.git
