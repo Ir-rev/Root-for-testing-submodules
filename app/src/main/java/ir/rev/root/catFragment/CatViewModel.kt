@@ -1,5 +1,6 @@
 package ir.rev.root.catFragment
 
+import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -66,10 +67,18 @@ class CatViewModel : ViewModel() {
     private fun List<Cat>.createViewModels(): List<BaseCat> {
         return map {
             when (it.group) {
-                "black" -> BlackCat(name = it.name, group = it.group)
-                "orange" -> OrangeCat(name = it.name, group = it.group)
-                "white" -> WhiteCat(name = it.name, group = it.group)
-                else -> OtherCat(name = it.name, group = it.group)
+                "black" -> BlackCat(name = it.name, group = it.group, onClick = ObservableField {
+                    action.post(ShowToast("$it"))
+                })
+                "orange" -> OrangeCat(name = it.name, group = it.group, onClick = ObservableField {
+                    action.post(ShowToast("$it"))
+                })
+                "white" -> WhiteCat(name = it.name, group = it.group, onClick = ObservableField {
+                    action.post(ShowToast("$it"))
+                })
+                else -> OtherCat(name = it.name, group = it.group, onClick = ObservableField {
+                    action.post(ShowToast("$it"))
+                })
             }
         }
     }

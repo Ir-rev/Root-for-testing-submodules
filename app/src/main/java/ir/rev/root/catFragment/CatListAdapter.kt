@@ -1,5 +1,6 @@
 package ir.rev.root.catFragment
 
+import androidx.databinding.BindingAdapter
 import ir.rev.root.R
 import ir.rev.vmadapter.ViewModelAdapter
 

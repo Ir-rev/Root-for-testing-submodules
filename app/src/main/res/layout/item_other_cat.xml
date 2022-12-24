@@ -11,6 +11,7 @@
     </data>
 
     <androidx.cardview.widget.CardView
+        app:onClick="@{viewModel.onClick}"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:backgroundTint="@color/teal_700"

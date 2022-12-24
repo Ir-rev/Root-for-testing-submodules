@@ -5,13 +5,14 @@ import ir.rev.vmadapter.ItemChecker
 
 sealed class BaseCat(
     val name: String,
-    val group: String
+    val group: String,
 ) {
 
+    abstract val onClick: ObservableField<() -> Unit>
     abstract val titleText: ObservableField<String>
 }
 
-class BlackCat(name: String, group: String) : BaseCat(name, group) {
+class BlackCat(name: String, group: String, override val onClick: ObservableField<() -> Unit>) : BaseCat(name, group) {
 
     override val titleText: ObservableField<String> = ObservableField("я черный кот по имени кот-$name")
 
@@ -23,11 +24,12 @@ class BlackCat(name: String, group: String) : BaseCat(name, group) {
         override fun merge(left: BlackCat, right: BlackCat) {
             if (left === right) return
             left.titleText.set(right.titleText.get())
+            left.onClick.set(right.onClick.get())
         }
     }
 }
 
-class OrangeCat(name: String, group: String) : BaseCat(name, group) {
+class OrangeCat(name: String, group: String, override val onClick: ObservableField<() -> Unit>) : BaseCat(name, group) {
 
     override val titleText: ObservableField<String> = ObservableField("я не кот,а К-О-Т-$name из группы $group")
 
@@ -39,11 +41,12 @@ class OrangeCat(name: String, group: String) : BaseCat(name, group) {
         override fun merge(left: OrangeCat, right: OrangeCat) {
             if (left === right) return
             left.titleText.set(right.titleText.get())
+            left.onClick.set(right.onClick.get())
         }
     }
 }
 
-class WhiteCat(name: String, group: String) : BaseCat(name, group) {
+class WhiteCat(name: String, group: String, override val onClick: ObservableField<() -> Unit>) : BaseCat(name, group) {
 
     override val titleText: ObservableField<String> = ObservableField("white power number $name")
 
@@ -60,12 +63,12 @@ class WhiteCat(name: String, group: String) : BaseCat(name, group) {
         override fun merge(left: WhiteCat, right: WhiteCat) {
             if (left === right) return
             left.titleText.set(right.titleText.get())
-
+            left.onClick.set(right.onClick.get())
         }
     }
 }
 
-class OtherCat(name: String, group: String) : BaseCat(name, group) {
+class OtherCat(name: String, group: String, override val onClick: ObservableField<() -> Unit>) : BaseCat(name, group) {
 
     override val titleText: ObservableField<String> = ObservableField("я что то иное номер $name")
 
@@ -77,7 +80,7 @@ class OtherCat(name: String, group: String) : BaseCat(name, group) {
         override fun merge(left: OtherCat, right: OtherCat) {
             if (left === right) return
             left.titleText.set(right.titleText.get())
-
+            left.onClick.set(right.onClick.get())
         }
     }
 }
